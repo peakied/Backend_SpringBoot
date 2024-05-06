@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-241.15989.150">
+    <data-source name="customer@localhost" uuid="85c16587-93b9-47c5-abaa-b7c873ab85b6">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" />
+      <user-name>peak</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="journaldb@firstone.ndsum8m.mongodb.net" uuid="2aabb8ef-1b2a-4a7f-8e0a-5efdb0b78efb">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" />
+      <user-name>pattaakarn</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
