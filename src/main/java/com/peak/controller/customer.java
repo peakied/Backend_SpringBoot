@@ -1,5 +1,6 @@
 package com.peak.controller;
 
+import com.peak.Util.Role;
 import com.peak.model.Customer;
 import com.peak.repository.CustomerRepository;
 import org.bson.types.ObjectId;
@@ -31,7 +32,7 @@ public class customer {
 
     @PostMapping
     public void addCustomer(@RequestBody NewCustomerRequest request) {
-        Customer customer = new Customer(request.name, request.email, request.password);
+        Customer customer = new Customer(request.name, request.email, request.password, Role.USER);
         customerRepository.save(customer);
     }
 
