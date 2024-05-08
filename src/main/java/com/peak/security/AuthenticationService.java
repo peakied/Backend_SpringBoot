@@ -4,6 +4,7 @@ package com.peak.security;
 import com.peak.Util.Role;
 import com.peak.model.Customer;
 import com.peak.repository.CustomerRepository;
+import com.peak.security.config.RegisterRequest;
 import com.peak.security.model.AuthenticationRequest;
 import com.peak.security.model.AuthenticationResponse;
 import com.peak.security.model.Response;

@@ -3,7 +3,7 @@ package com.peak.controller;
 
 import com.peak.security.model.AuthenticationRequest;
 import com.peak.security.AuthenticationService;
-import com.peak.security.RegisterRequest;
+import com.peak.security.config.RegisterRequest;
 import com.peak.security.model.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

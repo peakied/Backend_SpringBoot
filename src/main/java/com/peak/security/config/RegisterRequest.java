@@ -1,4 +1,4 @@
-package com.peak.security;
+package com.peak.security.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

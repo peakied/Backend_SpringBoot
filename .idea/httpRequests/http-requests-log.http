@@ -1,0 +1,15 @@
+GET http://localhost:8080/api/v1/customers
+Content-Type: application/json
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 49
+
+{
+  "name": "",
+  "email": "",
+  "password": ""
+}
+
+###
+
