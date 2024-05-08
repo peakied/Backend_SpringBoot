@@ -1,8 +1,8 @@
-package com.peak.controller;
+package com.peak.main.controller;
 
 
 import com.peak.security.model.AuthenticationRequest;
-import com.peak.security.AuthenticationService;
+import com.peak.security.service.AuthenticationService;
 import com.peak.security.model.RegisterRequest;
 import com.peak.security.model.Response;
 import lombok.RequiredArgsConstructor;

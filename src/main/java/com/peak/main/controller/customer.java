@@ -1,8 +1,8 @@
-package com.peak.controller;
+package com.peak.main.controller;
 
 import com.peak.Util.Role;
-import com.peak.model.Customer;
-import com.peak.repository.CustomerRepository;
+import com.peak.main.model.Customer;
+import com.peak.main.repository.CustomerRepository;
 import org.bson.types.ObjectId;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

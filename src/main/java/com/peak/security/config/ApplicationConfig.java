@@ -1,6 +1,6 @@
 package com.peak.security.config;
 
-import com.peak.repository.CustomerRepository;
+import com.peak.main.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

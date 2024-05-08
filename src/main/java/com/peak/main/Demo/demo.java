@@ -1,4 +1,4 @@
-package com.peak.Demo;
+package com.peak.main.Demo;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

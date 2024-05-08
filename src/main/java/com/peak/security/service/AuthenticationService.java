@@ -1,9 +1,9 @@
-package com.peak.security;
+package com.peak.security.service;
 
 
 import com.peak.Util.Role;
-import com.peak.model.Customer;
-import com.peak.repository.CustomerRepository;
+import com.peak.main.model.Customer;
+import com.peak.main.repository.CustomerRepository;
 import com.peak.security.model.RegisterRequest;
 import com.peak.security.model.AuthenticationRequest;
 import com.peak.security.model.AuthenticationResponse;

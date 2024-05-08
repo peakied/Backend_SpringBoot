@@ -1,6 +1,6 @@
 package com.peak.security.config;
 
-import com.peak.security.JwtService;
+import com.peak.security.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

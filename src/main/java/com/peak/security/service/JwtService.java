@@ -1,4 +1,4 @@
-package com.peak.security;
+package com.peak.security.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

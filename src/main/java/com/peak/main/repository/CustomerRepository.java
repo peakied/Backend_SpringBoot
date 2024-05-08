@@ -1,9 +1,8 @@
-package com.peak.repository;
+package com.peak.main.repository;
 
-import com.peak.model.Customer;
+import com.peak.main.model.Customer;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 
 import java.util.Optional;
 

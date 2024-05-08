@@ -1,4 +1,4 @@
-package com.peak.model;
+package com.peak.main.model;
 
 import com.peak.Util.Role;
 import lombok.Data;
