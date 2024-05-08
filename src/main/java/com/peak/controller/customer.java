@@ -4,6 +4,7 @@ import com.peak.Util.Role;
 import com.peak.model.Customer;
 import com.peak.repository.CustomerRepository;
 import org.bson.types.ObjectId;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +20,15 @@ public class customer {
     private final CustomerRepository customerRepository;
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Customer> getCustomers() {
         return customerRepository.findAll();
+    }
+
+    @GetMapping("/check")
+    @PreAuthorize("hasRole('USER')")
+    public String checkCustomer() {
+        return "haa";
     }
 
 
