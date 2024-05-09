@@ -1,9 +1,12 @@
 package com.peak.main.controller;
 
-import com.peak.Util.Role;
 import com.peak.main.model.Customer;
 import com.peak.main.repository.CustomerRepository;
+import com.peak.security.model.RegisterRequest;
+import com.peak.security.model.Response;
+import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,48 +15,32 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/customers")
+@RequiredArgsConstructor
 public class customer {
 
-    public customer(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
     private final CustomerRepository customerRepository;
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public List<Customer> getCustomers() {
         return customerRepository.findAll();
     }
 
     @GetMapping("/check")
-    @PreAuthorize("hasRole('USER')")
-    public String checkCustomer() {
-        return "haa";
-    }
-
-
-    record NewCustomerRequest(
-            String name,
-            String email,
-            String password
-    ) {}
-
-    @PostMapping
-    public void addCustomer(@RequestBody NewCustomerRequest request) {
-        Customer customer = new Customer(request.name, request.email, request.password, Role.USER);
-        customerRepository.save(customer);
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    public String hello() {
+        return "Hello USER";
     }
 
     @DeleteMapping("{customerId}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public void deleteCustomer(@PathVariable("customerId") ObjectId id) {
         customerRepository.delete(customerRepository.findBy_id(id));
     }
 
-    @PutMapping("{customerId}")
-    public void updateCustomer(@PathVariable("customerId") ObjectId id, @RequestBody NewCustomerRequest request) {
-        Customer customer = customerRepository.findBy_id(id);
-        customer.setName(request.name());
-        customer.setEmail(request.email());
-        customerRepository.save(customer);
+    @PutMapping("/{cid}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    public ResponseEntity<Response> update(@RequestBody RegisterRequest request, @PathVariable String cid) {
+        return ResponseEntity.ok().body(new Response("ha"));
     }
 }
