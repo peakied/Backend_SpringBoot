@@ -26,7 +26,6 @@ public class hotel {
         return ResponseEntity.ok(hotelRepository.findAll());
     }
 
-
     @PostMapping
     @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity addHotel(@RequestBody RequestHotel requestHotel) {
@@ -38,5 +37,12 @@ public class hotel {
                 .build();
         hotelRepository.save(hotel);
         return ResponseEntity.ok(hotel);
+    }
+
+    @DeleteMapping("/{hid}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    public ResponseEntity delHotel(@PathVariable String hid) {
+        hotelRepository.deleteById(hid);
+        return ResponseEntity.ok("");
     }
 }

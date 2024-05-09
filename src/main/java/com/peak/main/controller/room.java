@@ -17,7 +17,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping ("hotel/{hid}")
+@RequestMapping ("hotel/{hid}/room")
 @RequiredArgsConstructor
 public class room {
 
