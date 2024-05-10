@@ -1,4 +1,4 @@
-package com.peak.security.model;
+package com.peak.main.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Response {
-    private String Body;
+    private Object Body;
 }

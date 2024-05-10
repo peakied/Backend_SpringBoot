@@ -4,7 +4,7 @@ package com.peak.main.controller;
 import com.peak.security.model.AuthenticationRequest;
 import com.peak.security.service.AuthenticationService;
 import com.peak.security.model.RegisterRequest;
-import com.peak.security.model.Response;
+import com.peak.main.model.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,11 +18,11 @@ public class auth {
 
     @PostMapping("/register")
     public ResponseEntity<Response> register(@RequestBody RegisterRequest request) {
-        return ResponseEntity.ok(service.register(request));
+        return ResponseEntity.ok(new Response(service.register(request)));
     }
 
     @PostMapping("/authenticate")
     public ResponseEntity<Response> authenticate(@RequestBody AuthenticationRequest request) {
-        return ResponseEntity.ok(service.authenticate(request));
+        return ResponseEntity.ok(new Response(service.authenticate(request)));
     }
 }

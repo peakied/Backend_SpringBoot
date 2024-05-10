@@ -7,7 +7,7 @@ import com.peak.main.repository.CustomerRepository;
 import com.peak.security.model.RegisterRequest;
 import com.peak.security.model.AuthenticationRequest;
 import com.peak.security.model.AuthenticationResponse;
-import com.peak.security.model.Response;
+import com.peak.main.model.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,9 +23,9 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public Response register(RegisterRequest request) {
+    public Object register(RegisterRequest request) {
         var foundcustomer = customerRepository.findByEmail(request.getEmail());
-        if (foundcustomer.isPresent()) return Response.builder().Body("Email already register").build();
+        if (foundcustomer.isPresent()) return "Email already register";
 
         var customer = new Customer(request.getName(), request.getEmail(), passwordEncoder.encode(request.getPassword()), Role.USER);
 
@@ -35,7 +35,7 @@ public class AuthenticationService {
         return new AuthenticationResponse(jwtToken);
     }
 
-    public Response authenticate(AuthenticationRequest request) {
+    public Object authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
