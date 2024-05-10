@@ -1,6 +1,7 @@
 package com.peak.main.model;
 
 import com.peak.Util.Role;
+import lombok.Builder;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

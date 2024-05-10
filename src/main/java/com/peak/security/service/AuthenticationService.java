@@ -7,8 +7,8 @@ import com.peak.main.repository.CustomerRepository;
 import com.peak.security.model.RegisterRequest;
 import com.peak.security.model.AuthenticationRequest;
 import com.peak.security.model.AuthenticationResponse;
-import com.peak.main.model.Response;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +18,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthenticationService {
 
+    @Value("${ADMIN_KEY}")
+    private String ADMIN_KEY;
     private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
@@ -27,7 +29,8 @@ public class AuthenticationService {
         var foundcustomer = customerRepository.findByEmail(request.getEmail());
         if (foundcustomer.isPresent()) return "Email already register";
 
-        var customer = new Customer(request.getName(), request.getEmail(), passwordEncoder.encode(request.getPassword()), Role.USER);
+        Customer customer = new Customer(request.getName(), request.getEmail(), request.getPassword(), Role.USER);
+        if (request.getKey() != null && request.getKey().equals(ADMIN_KEY)) customer.setRole(Role.ADMIN);
 
 
         customerRepository.save(customer);
