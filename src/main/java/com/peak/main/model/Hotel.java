@@ -1,6 +1,8 @@
 package com.peak.main.model;
 
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Builder;
 import lombok.Data;
 import org.bson.types.ObjectId;
@@ -16,9 +18,11 @@ import java.util.List;
 public class Hotel {
 
     @Id
+    @JsonSerialize(using= ToStringSerializer.class)
     private @MongoId ObjectId id;
     private String hotelName;
     private String hotelAddress;
     private String hotelCity;
+    private String image;
     private List<Room> rooms;
 }
