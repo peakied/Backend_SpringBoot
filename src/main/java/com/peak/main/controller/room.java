@@ -39,12 +39,10 @@ public class room {
     @DeleteMapping
     @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Response> delRoom(@PathVariable String hid, @RequestBody String name) {
-        if (name == null)
-            return ResponseEntity.badRequest().body(new Response("Fill the form"));
+        if (name == null) return ResponseEntity.badRequest().body(new Response("Fill the form"));
 
         Optional<Hotel> foundHotel = hotelRepository.findById(hid);
-        if (foundHotel.isEmpty())
-            return ResponseEntity.badRequest().body(new Response("Dont found this hotel"));
+        if (foundHotel.isEmpty()) return ResponseEntity.badRequest().body(new Response("Dont found this hotel"));
 
         List<Room> room = foundHotel.get().getRooms().stream().filter(r -> r.getName().equals(name)).toList();
         foundHotel.get().setRooms(room);

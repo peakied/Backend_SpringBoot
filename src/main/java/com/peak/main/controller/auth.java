@@ -18,11 +18,13 @@ public class auth {
 
     @PostMapping("/register")
     public ResponseEntity<Response> register(@RequestBody RegisterRequest request) {
+        if (request.getName() == null || request.getEmail() == null || request.getPassword() == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(new Response(service.register(request)));
     }
 
     @PostMapping("/authenticate")
     public ResponseEntity<Response> authenticate(@RequestBody AuthenticationRequest request) {
+        if (request.getEmail() == null || request.getPassword() == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(new Response(service.authenticate(request)));
     }
 }
