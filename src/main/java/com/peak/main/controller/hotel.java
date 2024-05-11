@@ -1,10 +1,9 @@
 package com.peak.main.controller;
 
 
-import com.peak.main.model.Hotel;
-import com.peak.main.model.RequestHotel;
+import com.peak.main.Request.RequestHotel;
+import com.peak.main.model.*;
 import com.peak.main.repository.HotelRepository;
-import com.peak.main.model.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

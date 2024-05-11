@@ -1,5 +1,7 @@
 package com.peak.main.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.peak.Util.Role;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +21,8 @@ import java.util.List;
 public class Customer implements UserDetails {
 
     @Id
-    private @MongoId ObjectId _id;
+    @JsonSerialize(using= ToStringSerializer.class)
+    private @MongoId ObjectId id;
     private String name;
     private String email;
     private String password;

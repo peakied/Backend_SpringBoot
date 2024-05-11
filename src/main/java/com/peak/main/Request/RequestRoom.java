@@ -1,4 +1,4 @@
-package com.peak.main.model;
+package com.peak.main.Request;
 
 
 import lombok.Data;
