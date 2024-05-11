@@ -29,7 +29,7 @@ public class AuthenticationService {
         var foundcustomer = customerRepository.findByEmail(request.getEmail());
         if (foundcustomer.isPresent()) return "Email already register";
 
-        Customer customer = new Customer(request.getName(), request.getEmail(), passwordEncoder.encode(request.getPassword()), Role.USER);
+        Customer customer = new Customer(request.getName(), request.getEmail(), request.getPassword(), Role.USER);
         if (request.getKey() != null && request.getKey().equals(ADMIN_KEY)) customer.setRole(Role.ADMIN);
 
 
